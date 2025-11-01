@@ -1,0 +1,218 @@
+.concept_img {
+    text-align: center;
+    /* margin-top: 25px; */
+}
+
+/* @media (max-width:768px) {
+    .concept_img {
+        width: calc(270 / 375 * 100vw);
+        margin-right: auto;
+        margin-left: auto;
+        display: block;
+        margin-top: 36px;
+    }
+} 
+*/
+
+.section_concept {
+    font-size: 24px;
+}
+
+@media (max-width:768px) {
+    .section_concept {
+        font-size: 16px;
+        font-weight: normal;
+    }
+}
+
+.section_concept::after {
+    content: "";
+    height: 5px;
+    border-top: 2px solid #000;
+    border-bottom: 1px solid #000;
+    display: block;
+    box-sizing: border-box;
+}
+
+.section_title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 173px;
+}
+
+@media (max-width:768px) {
+    .section_title {
+        margin-top: 62px;
+        font-size: 10px;
+    }
+}
+
+.section_text {
+    font-size: 20px;
+    text-align: center;
+
+    margin-top: 28px;
+}
+
+@media (max-width:768px) {
+    .section_text {
+        font-size: 12px;
+
+        margin-top: 36px;
+    }
+}
+
+.wrapper {
+    max-width: 1076px;
+    margin: auto;
+    /** 要素の右よせ */
+    text-align: right;
+}
+
+.section_img {
+    max-width: 303px;
+}
+
+@media (max-width:768px) {
+    .section_img {
+        max-width: 100%;
+    }
+}
+
+.section_unit {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: #F1F1F1;
+    padding: 72px 91px 56px 90px;
+    gap: 145px;
+}
+
+@media (max-width:768px) {
+    .section_unit {
+        margin-top: 45px;
+        padding: 40px;
+
+        gap: 23px;
+
+    }
+}
+
+
+/** 偶数いーぶん！！！！！！！！！！！！！！！！！！！！！！！ */
+.section_unit:nth-of-type(even) {
+    flex-direction: row-reverse;
+}
+
+@media (max-width:768px) {
+
+    .section_unit,
+    .section_unit:nth-of-type(even) {
+        flex-direction: column;
+    }
+}
+
+.section_unit+.section_unit {
+    margin-top: 120px;
+}
+
+.section_unit {
+    counter-increment: number;
+    /* 各 .section_unit でカウントアップ */
+    position: relative;
+    /* 番号の絶対位置指定のために必要 */
+}
+
+.section_subtitle {
+    font-size: 18px;
+    position: relative;
+    z-index: 1;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+@media (max-width:768px) {
+    .section_subtitle {
+        font-size: 16px;
+    }
+}
+
+
+.section_subtitle::before {
+    content: "0" counter(number);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 75px;
+    letter-spacing: 0.2em;
+    line-height: 1;
+    z-index: -1;
+    
+}
+
+@media (max-width:768px) {
+    .section_subtitle::before {
+        font-size: 50px;
+    }
+}
+
+
+.section_explanation {
+    font-size: 18px;
+    margin-top: 73px;
+}
+
+@media (max-width:768px) {
+    .section_explanation {
+        margin-top: 17px;
+
+        font-size: 12px;
+    }
+}
+
+.section_wrapper {
+    max-width: 446px;
+    position: relative;
+    /* counter-increment: num; */
+}
+
+/* .section_wrapper::before {
+    content: counter(num);
+    counter-reset: num;
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translate(-50%);
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 75px;
+    letter-spacing: 0.2;
+} */
+
+/* 共通パーツ部分ここから */
+
+/* 共通パーツ部分ここまで */
+
+/**
+* Section Conecpt
+*/
+
+.concept_wrapper {
+    margin-top: 215px;
+}
+
+@media (max-width:768px) {
+    .concept_wrapper {
+        margin-top: 58px;
+        width: calc(100% - 42px * 2);
+    }
+}
+
+.top_img {
+    margin-top: 180px;
+}

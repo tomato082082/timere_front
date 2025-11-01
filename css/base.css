@@ -1,0 +1,526 @@
+/* 共通パーツ部分 */
+body {
+    font-family: 'Roboto', 'Hiragino Sans', 'Meiryo', 'Hiragino Kaku Gothic ProN', sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.6;
+    color: #000;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/******************
+PCの時だけ表示する
+*******************/
+.display-pc {
+    display: block !important;
+}
+
+@media (max-width: 768px) {
+    .display-pc {
+        display: none !important;
+    }
+}
+
+/******************
+SPの時だけ表示する
+*******************/
+.display-sp {
+    display: none !important;
+}
+
+@media (max-width: 768px) {
+    .display-sp {
+        display: block !important;
+    }
+}
+
+/******************
+    Layout
+*******************/
+
+.container {}
+
+@media (max-width: 768px) {
+    .container {
+        width: calc(100% - 20px * 2);
+        margin-right: auto;
+        margin-left: auto;
+    }
+}
+
+.img_wrapper {
+    max-width: 1076px;
+    margin: auto;
+
+    margin-top: 48px;
+}
+
+@media (max-width: 768px) {
+    .img_wrapper {
+        width: calc(270 / 375 * 100vw);
+        margin-top: 62px;
+    }
+}
+
+/* header部分ここから */
+.header_inner {
+    display: flex;
+    justify-content: center;
+    padding: 12px 0;
+}
+
+/* ヘッダーボタン */
+
+.header_btn {
+    display: none;
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 24px;
+    height: 24px;
+    z-index: 100;
+    padding: 11px;
+    box-sizing: content-box;
+}
+
+@media (max-width: 768px) {
+    .header_btn {
+        display: block;
+    }
+}
+
+/** 擬似要素に対して、contentが必要 */
+.header_btn::before,
+.header_btn::after {
+    content: "";
+    transition: 0.2s;
+}
+
+/** CSSセレクタはまとめて設定可能 */
+.header_btn::before,
+.header_btn::after,
+.header_btn_bar {
+    background-color: #000;
+    display: block;
+    height: 1px;
+}
+
+.header_btn_bar {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+/** ナビゲーションが開いた時 */
+.header.is-open .header_btn_bar {
+    position: absolute;
+    top: 0;
+}
+
+.header.is-open .header_btn::before {
+    transform: rotate(45deg);
+}
+
+.header.is-open .header_btn::after {
+    transform: rotate(-45deg);
+    margin-top: -1px;
+}
+
+.header.is-open .main_nav {
+    /* 透明ver */
+    /* opacity: 1;
+    visibility: visible; */
+
+    /** 横から移動してくる ver */
+    transform: translate(0);
+}
+
+/* spハンバーガー手順
+①スマホボタンを作成
+②スマホの展開図を作成
+③スマホの展開図を隠す
+④スマホの展開図を表示（スイッチ機能）
+*/
+
+@media (max-width: 768px) {
+    .sp-nav {
+        position: relative;
+        width: 17px;
+        height: 13px;
+    }
+
+    /* ここに768px以下適用したいコードをかく */
+
+    /* 閉じている時 */
+    .sp_nav .bar,
+    .sp_nav .bar::before,
+    .sp_nav .bar::after {
+        width: 100%;
+        height: 2px;
+        background-color: #ffffff;
+        display: block;
+    }
+}
+
+.nav_icon {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 14px;
+
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    max-width: 182px;
+}
+
+@media (max-width: 768px) {
+    .nav_icon {
+        display: none;
+    }
+}
+
+.main_nav {
+    margin-top: 15px;
+}
+
+.main_logo {
+    display: flex;
+    justify-content: center;
+    /* margin-top: -20px; */
+}
+
+.main_logo-img {
+    width: 183px;
+}
+
+@media (max-width: 768px) {
+    .main_logo-img {
+        width: auto;
+        max-width: 75px;
+    }
+}
+
+.main_nav_logo {
+    padding: 12px 0;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .main_nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        z-index: 10;
+        transition: 0.4s;
+
+        /** ↓↓↓ 透明ver ↓↓↓ */
+        /* visibility: hidden;
+        opacity: 0; */
+
+        /** ↓↓↓ 横から出てくる ↓↓↓ */
+        transform: translateX(100%);
+    }
+}
+
+.main_nav_heading {
+    text-align: center;
+    font-weight: 800;
+    font-size: 14px;
+    padding: 15px 0;
+}
+
+.main_nav-list {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+@media (max-width: 768px) {
+    .main_nav-list {
+        border-top: 1px solid #797474;
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
+.main_nav-item {}
+
+@media (max-width: 768px) {
+    .main_nav-item {
+        border-bottom: 1px solid #797474;
+    }
+}
+
+.main_nav-item a {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    font-size: 16px;
+    line-height: 1;
+    gap: 8px;
+}
+
+@media (max-width: 768px) {
+    .main_nav-item a {
+        flex-direction: row;
+        align-items: center;
+        padding: 15px 0;
+        font-size: 12px;
+    }
+}
+
+.main_nav-item a::after {
+    content: "";
+    display: block;
+    width: 0%;
+    height: 1px;
+    background-color: #000;
+    transition: 0.4s;
+}
+
+@media (max-width: 768px) {
+    .main_nav-item a::after {
+        content: none;
+    }
+}
+
+.main_nav-item a:hover::after {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .main_nav-item a::before {
+        content: "";
+        width: 10px;
+        height: 10px;
+        display: block;
+        border-top: 1.5px solid #000;
+        border-right: 1.5px solid #000;
+        transform: rotate(45deg);
+        margin-right: 15px;
+    }
+}
+
+.main_nav-list_sp {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .main_nav-list_sp {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding-left: 30px;
+        margin-top: 15px;
+    }
+}
+
+.main_nav-item_sp-logo {
+    display: flex;
+}
+
+/** ホバー時にwidth: 100%にする */
+.main_nav-item a:hover::after {
+    width: 100%;
+}
+
+/* header部分ここまで */
+
+/* 予約ボタン */
+
+.reserve_btn {
+    max-width: 937px;
+    margin: 0 auto;
+    display: block;
+    margin-top: 150px;
+    text-align: right;
+}
+
+.reserve_btn a {
+    display: inline-block;
+}
+
+.reserve_btn-img {
+    margin-top: -12px;
+}
+
+@media (max-width:768px) {
+    .reserve_btn-img {
+        width: 175px;
+        height: 13px;
+        display: block;
+        margin-left: auto;
+        padding: 0 20px 0 0;
+        margin-top: -12px;
+    }
+}
+
+@media (max-width:768px) {}
+
+.reserve_btn-subtext {
+    padding-right: 49px;
+}
+
+@media (max-width:768px) {
+    .reserve_btn-subtext {
+        font-size: 12px;
+    }
+}
+
+/* footer部分ここから */
+.footer {
+    background-color: #F1F1F1;
+    overflow: hidden;
+    margin-top: -40px;
+}
+
+@media (max-width: 768px) {
+    .footer {
+        margin-top: -20px;
+    }
+}
+
+.footer_inner {
+    padding-top: 62px;
+    max-width: 510px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (max-width: 768px) {
+    .footer_inner {
+        padding-top: 40px;
+    }
+}
+
+.footer_logo-img {
+    width: 131px;
+    background-color: #F1F1F1;
+}
+
+.footer_logo {
+    display: flex;
+    justify-content: center;
+
+}
+
+.footer_list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 40px;
+    /* margin-top: 55px; */
+}
+
+@media (max-width: 768px) {
+    .footer_list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin-right: auto;
+    }
+}
+
+.footer_subunit {
+    font-size: 12px;
+    line-height: 1.8;
+    margin-top: 45px;
+}
+
+@media (max-width: 768px) {
+    .footer_subunit {
+        margin-top: 42px;
+    }
+}
+
+.footer_icon {
+    display: flex;
+    text-align: center;
+    gap: 10px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.footer_icon-isg {
+    max-width: 40px;
+}
+
+.footer_logo-hpb {
+    width: auto;
+    height: 41px;
+}
+
+.footer_unit {
+    display: flex;
+    flex-direction: column;
+    /* align-items: flex-end;
+    justify-content: center; */
+
+    gap: 48px;
+    margin-top: 48px;
+}
+
+@media (max-width: 768px) {
+    .footer_unit {
+        margin-top: 56px;
+    }
+}
+
+.footer_item {
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    .footer_item a {
+        font-size: 10px;
+    }
+}
+
+.copyligh {
+    font-size: 12px;
+    margin-top: 168px;
+    text-align: center;
+    padding-bottom: 8px;
+}
+
+.top_img {
+    text-align: right;
+    position: relative;
+    margin-top: 200px;
+
+    padding-right: 66px;
+    /* margin-bottom: -40px; */
+
+}
+
+
+@media (max-width: 768px) {
+    .top_img {
+        margin-top: 70px;
+    }
+
+    .top_img img {
+        width: 40px;
+    }
+}
+
+@media (max-width:768px) {
+    .mv_img {
+        /* width: calc(270 / 375 * 100vw); */
+        margin-right: auto;
+        margin-left: auto;
+        display: block;
+        /* margin-top: 36px; */
+    }
+}
+
+
+/* footer部分ここまで */

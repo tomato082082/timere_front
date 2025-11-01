@@ -1,0 +1,152 @@
+.section_title {
+    display: flex;
+    justify-content: center;
+}
+
+.section_staff {
+    font-size: 24px;
+    margin-top: 155px;
+}
+
+@media (max-width:768px) {
+    .section_staff {
+    font-size: 16px;
+    margin-top: 69px;
+    }
+}
+
+.section_staff::after {
+    content: "";
+    height: 5px;
+    border-top: 2px solid #000;
+    border-bottom: 1px solid #000;
+    display: block;
+    box-sizing: border-box;
+}
+
+.staff_list {
+    /* display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; */
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 50px;
+    row-gap: 70px;
+}
+
+@media (max-width:768px) {
+    .staff_list {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 55px;
+        padding: 0 60px;
+    }
+}
+
+.staff_item {
+    font-size: 18px;
+    
+    line-height: 1.5;
+}
+
+.staff_item_inner {
+    display: flex;
+    /* align-items: flex-end; */
+    align-items: center;
+    justify-content: space-between;
+}
+
+@media (max-width:768px) {
+.staff_item_inner{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    }
+}
+
+.staff_img {
+    width: 100%;
+}
+
+.instagram_icon-bk {
+    max-width: 40px;
+}
+
+@media (max-width:768px) {
+.instagram_icon-bk{
+max-width: 20px;
+    }
+}
+
+
+.staff_wrapper {
+    max-width: 937px;
+    margin: 189px auto 0;
+}
+
+@media (max-width:768px) {
+    .staff_wrapper {
+       margin-top: 100px;
+    }
+}
+
+/* .staff_reserve {
+    max-width: 937px;
+    margin: 0 auto;
+    text-align: right;
+
+    margin-top: 150px;
+}
+
+.staff_reserve img {
+    margin-top: -12px;
+} */
+
+/* @media (max-width:768px) {
+    .staff_reserve-img {
+        width: 175px;
+        height: 13px;
+        display: inline-block;
+        padding: 0 20px 0 0;
+        margin-top: 3px;
+    }
+} */
+
+/* @media (max-width:768px) {}
+
+.section_bottom-subtext {
+    padding-right: 49px;
+}
+
+@media (max-width:768px) {
+    .section_bottom-subtext {
+        font-size: 12px;
+    }
+} */
+
+@media (max-width:768px) {
+    .top_img js-top {
+        width: 145px;
+        height: 13px;
+    }
+}
+
+.text_item {
+    margin-top: 93px;
+    padding: 0 65px 0 0;
+    text-align: right;
+}
+
+@media (max-width:768px) {
+    .staff_box {
+        font-size: 12px;
+    }
+}
+
+/* 共通部分ここから */
+.footer {
+    /* margin-top: -150px; */
+}
+
+
+/* 共通部分ここまで */
